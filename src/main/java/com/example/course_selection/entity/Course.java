@@ -34,11 +34,11 @@ public class Course {
 	private String courseEndTime;//課程結束時間
 	
 	@Column(name="course_credit")
-	private int courseCredit;//課程學分
+	private Integer courseCredit;//課程學分
 	
 	
 	@Column(name="course_member")
-	private int courseMember;//課程修課人數
+	private Integer courseMember;//課程修課人數
 
 	
 	
@@ -103,19 +103,19 @@ public class Course {
 		this.courseEndTime = courseEndTime;
 	}
 
-	public int getCourseCredit() {
+	public Integer getCourseCredit() {
 		return courseCredit;
 	}
 
-	public int getCourseMember() {
+	public Integer getCourseMember() {
 		return courseMember;
 	}
 
-	public void setCourseMember(int courseMember) {
+	public void setCourseMember(Integer courseMember) {
 		this.courseMember = courseMember;
 	}
 
-	public void setCourseCredit(int courseCredit) {
+	public void setCourseCredit(Integer courseCredit) {
 		this.courseCredit = courseCredit;
 	}
 

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.example.course_selection.service.ifs.StudentService;
+import com.example.course_selection.vo.StudentAddInfoResponse;
 import com.example.course_selection.vo.StudentRequest;
 import com.example.course_selection.vo.StudentResponse;
 
@@ -20,7 +21,7 @@ public class StudentController {
 
 
 	@PostMapping("/add_Student")
-	public StudentResponse addStudent(@RequestBody StudentRequest req) {
+	public StudentAddInfoResponse addStudent(@RequestBody StudentRequest req) {
 		return studentService.addStudent(req);
 	}
 	

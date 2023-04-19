@@ -2,9 +2,12 @@ package com.example.course_selection.vo;
 
 import java.util.List;
 
+import javax.persistence.Column;
+
 import com.example.course_selection.entity.Course;
 import com.example.course_selection.entity.Student;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -15,21 +18,83 @@ public class StudentResponse {
 	private String courseID;//課程代號
 	private String message;//回傳訊息
 	
-	private Course course;
 	
-	private List<Student> student;
+	private Integer courseCredit;//課程學分
+	
+	
+	
+	private Integer courseMember;//課程修課人數
+	
 	
 
+	@JsonProperty("student_infomation")
+	private Student studentItem;
+	private Course course;
+	
+	@JsonProperty("selected_course_info")
+	private List<Course>  mutiCourseList;
+	@JsonProperty("student_selection")
+	private List<Student> student;
+	
+	@JsonProperty("Maximum_num_course")
+	private List<String> errList;//需要調整的清單
 	private List<String> courseList;//多筆選課課程清單
 	
 	
 	
-	
-	
+	public StudentResponse(String courseID, String message, List<String> courseList) {
+		super();
+		this.courseID = courseID;
+		this.message = message;
+		this.courseList = courseList;
+	}
 	
 	
 
-	public StudentResponse( List<String> courseList,String message) {
+	public StudentResponse(String message, List<Course> mutiCourseList, List<String> errList) {
+		super();
+		this.message = message;
+		this.mutiCourseList = mutiCourseList;
+		this.errList = errList;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public StudentResponse(List<Course> mutiCourseList , String message) {
+		super();
+		this.message = message;
+		this.mutiCourseList = mutiCourseList;
+	}
+
+
+
+
+
+
+	public StudentResponse(String message, Student studentItem, Course course) {
+		super();
+		this.message = message;
+		this.studentItem = studentItem;
+		this.course = course;
+	}
+
+	public StudentResponse(String message, Student studentItem) {
+		super();
+		this.message = message;
+		this.studentItem = studentItem;
+	}
+
+	public StudentResponse(  String message , List<String> courseList) {
 		this.message = message;
 		this.courseList = courseList;
 	}
@@ -39,21 +104,16 @@ public class StudentResponse {
 		// TODO Auto-generated constructor stub
 	}
 
-	public StudentResponse(String studentId, String message, List<String> courseList) {
-		super();
-		this.studentId = studentId;
-		this.message = message;
-		this.courseList = courseList;
-	}
+
 	
 	
 
 
-	public StudentResponse(String message, List<Student> student) {
-		super();
-		this.message = message;
-		this.student = student;
-	}
+//	public StudentResponse(String message, List<Student> student) {
+//		super();
+//		this.message = message;
+//		this.student = student;
+//	}
 
 	
 
@@ -128,6 +188,68 @@ public class StudentResponse {
 
 	public void setCourse(Course course) {
 		this.course = course;
+	}
+
+	public Student getStudentItem() {
+		return studentItem;
+	}
+
+	public void setStudentItem(Student studentItem) {
+		this.studentItem = studentItem;
+	}
+
+
+
+
+
+
+	public Integer getCourseCredit() {
+		return courseCredit;
+	}
+
+
+
+
+
+
+	public void setCourseCredit(Integer courseCredit) {
+		this.courseCredit = courseCredit;
+	}
+
+
+
+
+
+
+	public Integer getCourseMember() {
+		return courseMember;
+	}
+
+
+
+
+
+
+	public void setCourseMember(Integer courseMember) {
+		this.courseMember = courseMember;
+	}
+
+
+
+
+
+
+	public List<Course> getMutiCourseList() {
+		return mutiCourseList;
+	}
+
+
+
+
+
+
+	public void setMutiCourseList(List<Course> mutiCourseList) {
+		this.mutiCourseList = mutiCourseList;
 	}
 	
 	
