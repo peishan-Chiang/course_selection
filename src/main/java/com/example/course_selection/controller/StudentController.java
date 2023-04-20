@@ -29,4 +29,15 @@ public class StudentController {
 	public StudentResponse selectCourse(@RequestBody StudentRequest req) {
 		return studentService.selectCourse(req);
 	}
+	
+	@PostMapping("/add_New_Course")
+	public StudentResponse addCourse(@RequestBody StudentRequest req) {
+		return studentService.addCourse(req);
+	}
+	
+	@PostMapping("/drop_Exist_Course")
+	public StudentResponse dropCourse(@RequestBody StudentRequest req) {
+		return studentService.dropCourse(req);
+	}
+	
 }

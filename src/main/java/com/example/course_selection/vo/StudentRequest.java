@@ -20,7 +20,8 @@ public class StudentRequest {
 	
 	
 	private List<String> courseList;//多筆選課課程清單
-	
+	@JsonProperty("drop_course")
+	private List<String> dropList;//多筆選課課程清單
 
 	public StudentRequest() {
 		super();
@@ -81,6 +82,18 @@ public class StudentRequest {
 
 	public void setCourseList(List<String> courseList) {
 		this.courseList = courseList;
+	}
+
+
+
+	public List<String> getDropList() {
+		return dropList;
+	}
+
+
+
+	public void setDropList(List<String> dropList) {
+		this.dropList = dropList;
 	}
 
 

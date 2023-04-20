@@ -13,6 +13,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StudentResponse {
 
+	public StudentResponse(String message, List<String> courseList) {
+		super();
+		this.message = message;
+		this.courseList = courseList;
+	}
+
+
+
+
+
+
 	private String studentId;//學生學號
 	private String studentName;//學生姓名
 	private String courseID;//課程代號
@@ -40,6 +51,9 @@ public class StudentResponse {
 	private List<String> errList;//需要調整的清單
 	private List<String> courseList;//多筆選課課程清單
 	
+	@JsonProperty("drop_course")
+	private List<String> dropList;//多筆選課課程清單
+	
 	
 	
 	public StudentResponse(String courseID, String message, List<String> courseList) {
@@ -62,11 +76,11 @@ public class StudentResponse {
 
 
 
-
-
-
-
-
+	public StudentResponse(String message, Integer courseCredit) {
+		super();
+		this.message = message;
+		this.courseCredit = courseCredit;
+	}
 
 
 
@@ -75,6 +89,9 @@ public class StudentResponse {
 		this.message = message;
 		this.mutiCourseList = mutiCourseList;
 	}
+
+
+
 
 
 
@@ -94,11 +111,7 @@ public class StudentResponse {
 		this.studentItem = studentItem;
 	}
 
-	public StudentResponse(  String message , List<String> courseList) {
-		this.message = message;
-		this.courseList = courseList;
-	}
-
+	
 	public StudentResponse() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -250,6 +263,30 @@ public class StudentResponse {
 
 	public void setMutiCourseList(List<Course> mutiCourseList) {
 		this.mutiCourseList = mutiCourseList;
+	}
+
+
+
+	public List<String> getErrList() {
+		return errList;
+	}
+
+
+
+	public void setErrList(List<String> errList) {
+		this.errList = errList;
+	}
+
+
+
+	public List<String> getDropList() {
+		return dropList;
+	}
+
+
+
+	public void setDropList(List<String> dropList) {
+		this.dropList = dropList;
 	}
 	
 	
