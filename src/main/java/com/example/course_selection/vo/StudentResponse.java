@@ -13,13 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StudentResponse {
 
-	public StudentResponse(String message, List<String> courseList) {
-		super();
-		this.message = message;
-		this.courseList = courseList;
-	}
-
-
+	
 
 
 
@@ -53,6 +47,15 @@ public class StudentResponse {
 	
 	@JsonProperty("drop_course")
 	private List<String> dropList;//多筆選課課程清單
+	
+	
+	public StudentResponse(String message, List<String> courseList) {
+		super();
+		this.message = message;
+		this.courseList = courseList;
+	}
+
+
 	
 	
 	
